@@ -1,0 +1,12 @@
+doctype html
+head
+  meta(charset='utf-8')
+  title Film Search Service
+  link(rel='stylesheet', type='text/css', href='public/css/style.css')
+  link(href='https://fonts.googleapis.com/css?family=Open+Sans:300', rel='stylesheet', type='text/css')
+.container
+  fieldset
+    form(action='/', method='post')
+      input.input(name='film', type='text', placeholder='Enter a film title', required='')
+      input.button(type='submit', value='Get Film Data')
+
