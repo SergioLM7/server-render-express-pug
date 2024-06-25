@@ -1,0 +1,32 @@
+doctype html
+html
+    head
+        title #{movie ? movie.Title : 'Resultado de la Búsqueda'}
+        link(rel='stylesheet', href='/css/styles.css')
+    body
+        header
+            h1 #{movie ? movie.Title : 'Resultado de la Búsqueda'}
+        if error
+            h1 Error
+            p #{error}
+        else if movie
+            if movie.Poster == "N/A"
+                img(src="/assets/default_poster.jpg", alt="poster default")
+            else 
+                img(src=movie.Poster, alt=movie.Title)
+            section
+                p Dirigida por: #{movie.Director}
+                p Argumento: #{movie.Plot}
+                p Año: #{movie.Year}
+                p País: #{movie.Country}
+                p Género: #{movie.Genre}
+                if movie.Awards == "N/A"
+                    p Premios: #{movie.Title} no tuvo premios
+                else 
+                    p Premios: #{movie.Awards}
+                p Duración: #{movie.Runtime}
+        else
+            section(class='error_busqueda')
+                h3 No se encontró la película.
+        a(href='/' class='reinicio') Reiniciar la búsqueda
+    include footer.pug 
